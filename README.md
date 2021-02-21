@@ -1,2 +1,2 @@
-# SH-IT-07647
-SideHustle Internship Tasks &amp; Quizzes
+
+# SideHustle Internship Tasks &amp; Quizzes
