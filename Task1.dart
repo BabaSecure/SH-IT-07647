@@ -1,24 +1,25 @@
 void main() {
-  var lQueue = [1, 2, 3, 4];
-  var ilQueue = [4, 1, 2, 3];
-  minimumBribes(lQueue, ilQueue);
+  var ilQueue = [1, 2, 3, 5, 4, 6, 7, 8];
+  minimumBribes(ilQueue);
 }
 
-minimumBribes(List lQueue, List ilQueue) {
-  if (lQueue.length != ilQueue.length) return;
+minimumBribes(List ilQueue) {
+  bool chaotic = false;
+  var bribes = 0;
 
-  lQueue.forEach((element) {
-    if (ilQueue.contains(element)) {
-      var bribes = ilQueue.indexOf(element) - lQueue.indexOf(element);
-
-      if (bribes <= 2 && bribes >= 0) {
-        print("$element was bribed $bribes time(s)");
-        return bribes;
-      } else if (bribes > 2) {
-        print("Too chaotic");
-      } else {
-        print("Too chaotic");
+  for (int n = 0; n < ilQueue.length; n++) {
+    if (ilQueue[n] - (n + 1) > 2) {
+      chaotic = true;
+    }
+    for (int ni = 0; ni < n; ni++) {
+      if (ilQueue[ni] > ilQueue[n]) {
+        bribes++;
       }
     }
-  });
+  }
+  if (chaotic == true) {
+    print("Too chaotic");
+  } else {
+    print("Total bribes : $bribes");
+  }
 }
